@@ -16,5 +16,5 @@ python main.py -ap path/to/audio/file
 Below is the result video when using the audio sample.wav
 
 <div align="middle">
-  <img src="https://user-images.githubusercontent.com/32743000/140615537-6fc24b11-9d5d-4428-93ab-65f5ec5be266.mp4" width="600"/>
+  <img src="https://user-images.githubusercontent.com/32743000/140615619-5f2829e9-d526-4e0a-81d3-1f1b39c79847.png" width="600"/>
 </div>
