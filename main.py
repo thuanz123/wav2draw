@@ -2,13 +2,13 @@ import glob
 import ffmpeg
 import random
 import argparse
-#import librosa
-#import pydiffvg
-#import clip
-#import wav2clip
-#import torch
-#import torch.nn as nn
-#import torchvision.transforms as transforms
+import librosa
+import pydiffvg
+import clip
+import wav2clip
+import torch
+import torch.nn as nn
+import torchvision.transforms as transforms
 
 if __name__ == '__main__':
     # Create the parser
