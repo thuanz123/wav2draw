@@ -1,4 +1,4 @@
-import glob
+ import glob
 import ffmpeg
 import random
 import argparse
@@ -66,7 +66,7 @@ if __name__ == '__main__':
         start = args.audio_hop_length * args.audio_index
         audio = audio[start : start + args.audio_frame_length]
 
-    embeds = torch.from_numpy(wav2clip.embed_audio(audio, wav2clip_model)).to(device)
+    embed = torch.from_numpy(wav2clip.embed_audio(audio, wav2clip_model)).to(device)
 
     # Check device for pydiffvg
     pydiffvg.set_device(torch.device(args.device))
@@ -170,7 +170,7 @@ if __name__ == '__main__':
         im_batch = torch.cat(img_augs)
         image_features = clip_model.encode_image(im_batch)
         for n in range(NUM_AUGS):
-            loss -= torch.cosine_similarity(embeds[i:i+1], image_features[n:n+1], dim=1)
+            loss -= torch.cosine_similarity(embed, image_features[n:n+1], dim=1)
                 
         # Backpropagate the gradients.
         loss.backward()
