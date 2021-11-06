@@ -1,5 +1,5 @@
 # Wav2Draw
-
+This is a hobby project of mine which aim to generate doodles from audio. It is inspired by two recent works [**Wav2CLIP**](https://arxiv.org/abs/2110.11499) and [**CLIPDraw**](https://arxiv.org/abs/2106.14843)
 
 ## Installation
 

@@ -1,12 +1,14 @@
+import glob
+import ffmpeg
 import random
 import argparse
-import librosa
-import pydiffvg
-import clip
-import wav2clip
-import torch
-import torch.nn as nn
-import torchvision.transforms as transforms
+#import librosa
+#import pydiffvg
+#import clip
+#import wav2clip
+#import torch
+#import torch.nn as nn
+#import torchvision.transforms as transforms
 
 if __name__ == '__main__':
     # Create the parser
@@ -48,7 +50,7 @@ if __name__ == '__main__':
         
     # Execute the parse_args() method
     args = wav2draw_parser.parse_args()
-
+    """
     # Load Wav2CLIP model
     wav2clip_model = wav2clip.get_model(device=args.device)
     clip_model, _ = clip.load('ViT-B/32', args.device, jit=False)
@@ -181,5 +183,20 @@ if __name__ == '__main__':
         for path in shapes:
             path.stroke_width.data.clamp_(1.0, args.max_width)
         for group in shape_groups:
-            group.stroke_color.data.clamp_(0.0, 1.0)
-        
+            group.stroke_color.data.clamp_(0.0, 1.0)"""
+
+
+    
+
+
+    input_still = ffmpeg.input(glob.glob("res/iter_*.png")[-1])
+    input_audio = ffmpeg.input(args.audio_prompts)
+
+    (
+        ffmpeg
+        .concat(input_still, input_audio, v=1, a=1)
+        .output("output.mp4")
+        .run(overwrite_output=True)
+    )
+
+    
